@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -16,11 +17,11 @@ const Service: React.FC = () => {
     {
       step: "01",
       title: "기본 신청서 작성",
-      subtitle: "아주 간단하게 시작!",
+      subtitle: "1분이면 신청 가능!",
       content: (
           <div className="space-y-4">
               <p className="text-gray-600 text-base leading-relaxed keep-all font-medium">
-                  인스타 프로필 링크로 접수합니다.
+                  인스타 프로필 링크에서 1분이면 신청 가능합니다.
               </p>
               <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100">
                   <span className="text-[10px] font-black text-eum-accent uppercase tracking-wider block mb-4">[ 기입 항목 예시 ]</span>
@@ -36,11 +37,11 @@ const Service: React.FC = () => {
     {
       step: "02",
       title: "2차 설문지 작성",
-      subtitle: "정밀한 매칭을 위한 준비",
+      subtitle: "상세한 정보 입력",
       content: (
           <div className="space-y-5">
               <p className="text-gray-600 text-base leading-relaxed keep-all font-medium">
-                  카톡 상담 전, 더 정밀한 매칭을 위해 2차 설문지를 링크로 안내드립니다.
+                  키, 직업, 연봉, 흡연 등 상세한 2차 설문을 작성합니다.
               </p>
               <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm space-y-4">
                   <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest block">✍️ 항목 예시</span>
@@ -88,7 +89,7 @@ const Service: React.FC = () => {
       content: (
           <div className="space-y-5">
               <p className="text-gray-600 text-base leading-relaxed keep-all font-medium">
-                  1:1 상담이 끝나면 프로필 제공 전, <strong className="text-eum-dark">‘지인 차단 시스템’</strong>을 통해 지인 여부를 미리 확인하고 프로필 카드를 제공합니다.
+                  프로필 제공 전, <strong className="text-eum-dark">‘지인 차단 시스템’</strong>을 통해 지인 여부를 미리 확인합니다.
               </p>
               <div className="bg-eum-dark text-white p-6 rounded-3xl shadow-inner relative overflow-hidden">
                   <div className="flex items-center gap-2 mb-4">
@@ -108,7 +109,7 @@ const Service: React.FC = () => {
                   </ul>
               </div>
               <p className="text-[13px] text-gray-500 font-bold leading-relaxed keep-all bg-gray-50 p-4 rounded-xl border border-gray-100">
-                💡 프로필 제공 전, 상대방의 <span className="text-eum-dark font-black">‘초성/나이/지역’</span>을 통해 지인 여부를 미리 확인합니다. 지인이라면 즉시 새로운 매칭을 진행해 드립니다.
+                💡 상대방의 ‘초성/나이/지역'을 미리 확인 후, 지인이라면 새로운 프로필을 제공합니다.
               </p>
           </div>
       ),
@@ -122,8 +123,8 @@ const Service: React.FC = () => {
           <div className="space-y-5">
               <div className="space-y-4">
                   <p className="text-gray-600 text-[15px] leading-relaxed keep-all font-medium">
-                    ① 매니저가 꼭 맞는 1명의 프로필 카드를 5~7일마다 제공합니다.<br/>
-                    ② 프로필 확인 후, 상호 수락 시 → 🎉 매칭 성공!
+                    ① 프로필 카드를 5~7일마다 1명씩 제공합니다.<br/>
+                    ② 상호 수락 시 → 🎉 매칭 성공!
                   </p>
                   <div className="flex flex-wrap gap-2">
                     <span className="bg-eum-dark text-white text-[10px] font-bold px-3 py-1 rounded-full">[3개월] 동안</span>

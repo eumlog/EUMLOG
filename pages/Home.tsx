@@ -35,9 +35,9 @@ const Hero = () => {
                     <div className="overflow-hidden"><span className="hero-text-reveal block translate-y-full">진심을</span></div>
                     <div className="overflow-hidden"><span className="hero-text-reveal block translate-y-full">잇다</span></div>
                 </h1>
-                <div className="hero-subtitle opacity-0 translate-y-6 space-y-2 md:space-y-3">
-                    <p className="text-[14px] md:text-lg font-medium text-gray-200 tracking-wide break-keep">빠른 만남보다, 맞는 사람을 한 번 제대로 만나는 것.</p>
-                    <p className="text-[14px] md:text-lg font-medium text-gray-200 tracking-wide break-keep">성공할 때까지 책임지는 3개월의 동행.</p>
+                <div className="hero-subtitle opacity-0 translate-y-6 space-y-2 md:space-y-3 px-4">
+                    <p className="text-[11px] md:text-[15px] font-medium text-gray-200 tracking-wide break-keep">빠른 만남보다, 맞는 사람을 한 번 제대로 만나는 것.</p>
+                    <p className="text-[11px] md:text-[15px] font-medium text-gray-200 tracking-wide break-keep">성공할 때까지 책임지는 3개월의 동행.</p>
                 </div>
             </div>
             <div className="hero-scroll absolute bottom-10 left-0 w-full flex justify-center opacity-0"><div className="animate-bounce"><ArrowDown className="text-white opacity-50 w-5 h-5 md:w-6 md:h-6" /></div></div>
@@ -105,7 +105,7 @@ const Intro = () => {
                         <h3 className="text-[9px] font-black text-eum-accent mb-6 md:mb-10 text-left uppercase tracking-widest">E.UM LOG</h3>
                         <ul className="space-y-4 md:space-y-7 relative z-10">
                             <li className="flex items-start gap-3"><div className="bg-eum-accent/20 p-1 rounded-full mt-1"><Check className="w-3 h-3 text-eum-accent flex-shrink-0" /></div><div><span className="block text-sm md:text-xl font-black mb-0.5 text-white">월 4~6만원대</span><span className="text-[10px] md:text-sm text-gray-400 font-medium">3개월 멤버십으로 합리적인 시작</span></div></li>
-                            <li className="flex items-start gap-3"><div className="bg-eum-accent/20 p-1 rounded-full mt-1"><Check className="w-3 h-3 text-eum-accent flex-shrink-0" /></div><div><span className="block text-sm md:text-xl font-black mb-0.5 text-white">무제한 소개</span><span className="text-[10px] md:text-sm text-gray-400 font-medium">횟수 제한 없이, 맞는 사람 나올 때까지</span></div></li>
+                            <li className="flex items-start gap-3"><div className="bg-eum-accent/20 p-1 rounded-full mt-1"><Check className="w-3 h-3 text-eum-accent flex-shrink-0" /></div><div><span className="block text-sm md:text-xl font-black mb-0.5 text-white">3개월동안 무제한 소개</span><span className="text-[10px] md:text-sm text-gray-400 font-medium">실제 연인 생기기 전까지 계속 소개</span></div></li>
                             <li className="flex items-start gap-3"><div className="bg-eum-accent/20 p-1 rounded-full mt-1"><Check className="w-3 h-3 text-eum-accent flex-shrink-0" /></div><div><span className="block text-sm md:text-xl font-black mb-0.5 text-white">1:1 수동 매칭</span><span className="text-[10px] md:text-sm text-gray-400 font-medium">지역 거점 기반, 매니저가 직접 상담 후 연결</span></div></li>
                         </ul>
                     </div>
