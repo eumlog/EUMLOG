@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -26,20 +27,20 @@ const Hero = () => {
     return (
         <section ref={containerRef} className="h-screen relative flex items-center justify-center overflow-hidden">
             <img ref={imgRef} src={IMAGES.heroBackground} className="absolute inset-0 w-full h-full object-cover brightness-[0.4] scale-110 grayscale-[20%]" alt="Hero Background" />
-            <div ref={textRef} className="relative z-10 text-center text-white w-[82%] md:w-full mx-auto flex flex-col items-center">
-                <div className="hero-label opacity-0 translate-y-6 mb-5 md:mb-10">
-                    <span className="text-eum-accent font-bold tracking-[0.2em] text-[9px] md:text-base uppercase border border-eum-accent/30 px-3 py-1.5 md:px-5 md:py-2.5 rounded-full bg-black/20 backdrop-blur-sm">수도권이 아닌 지역기반 소개팅</span>
+            <div ref={textRef} className="relative z-10 text-center text-white w-[90%] md:w-full mx-auto flex flex-col items-center">
+                <div className="hero-label opacity-0 translate-y-6 mb-6 md:mb-10">
+                    <span className="text-eum-accent font-bold tracking-[0.2em] text-[12px] md:text-base uppercase border border-eum-accent/30 px-4 py-2 md:px-5 md:py-2.5 rounded-full bg-black/20 backdrop-blur-sm">수도권이 아닌 지역기반 소개팅</span>
                 </div>
-                <h1 className="font-sans text-[12vw] md:text-[7.5vw] font-black leading-[1.2] tracking-tighter mb-5 md:mb-12 text-white">
+                <h1 className="font-sans text-[16vw] md:text-[7.5vw] font-black leading-[1.2] tracking-tighter mb-6 md:mb-12 text-white">
                     <div className="overflow-hidden"><span className="hero-text-reveal block translate-y-full">진심을</span></div>
                     <div className="overflow-hidden"><span className="hero-text-reveal block translate-y-full">잇다</span></div>
                 </h1>
-                <div className="hero-subtitle opacity-0 translate-y-6 space-y-1.5 md:space-y-3">
-                    <p className="text-[11px] md:text-lg font-medium text-gray-200 tracking-wide break-keep">빠른 만남보다, 맞는 사람을 한 번 제대로 만나는 것.</p>
-                    <p className="text-[11px] md:text-lg font-medium text-gray-200 tracking-wide break-keep">성공할 때까지 책임지는 3개월의 동행.</p>
+                <div className="hero-subtitle opacity-0 translate-y-6 space-y-2 md:space-y-3">
+                    <p className="text-[14px] md:text-lg font-medium text-gray-200 tracking-wide break-keep">빠른 만남보다, 맞는 사람을 한 번 제대로 만나는 것.</p>
+                    <p className="text-[14px] md:text-lg font-medium text-gray-200 tracking-wide break-keep">성공할 때까지 책임지는 3개월의 동행.</p>
                 </div>
             </div>
-            <div className="hero-scroll absolute bottom-10 left-0 w-full flex justify-center opacity-0"><div className="animate-bounce"><ArrowDown className="text-white opacity-50 w-4 h-4 md:w-6 md:h-6" /></div></div>
+            <div className="hero-scroll absolute bottom-10 left-0 w-full flex justify-center opacity-0"><div className="animate-bounce"><ArrowDown className="text-white opacity-50 w-5 h-5 md:w-6 md:h-6" /></div></div>
         </section>
     );
 };
@@ -144,9 +145,9 @@ const SystemFeatures = () => {
                             <h3 className="font-sans text-xl md:text-3xl font-black text-eum-dark leading-tight">이음로그만의 <br /><span className="text-eum-accent">특별한 3가지 약속</span></h3>
                         </div>
                         <div className="space-y-6 md:space-y-10">
-                            <div className="feature-item flex gap-3.5 md:gap-5 group"><div className="flex-shrink-0 w-9 h-9 md:w-14 md:h-14 rounded-lg md:rounded-2xl bg-gray-50 flex items-center justify-center text-gray-400 group-hover:bg-eum-accent group-hover:text-white transition-all duration-300"><Shield className="w-4 h-4 md:w-7 md:h-7" /></div><div><h4 className="text-sm md:text-lg font-black text-gray-900 mb-1 md:mb-2">철저한 지인 차단</h4><p className="text-gray-600 leading-relaxed font-medium text-[11px] md:text-base break-keep">프로필 제공 전, 상대방의 ‘초성/나이/지역’을 통해 지인 여부를 미리 확인합니다.</p></div></div>
-                            <div className="feature-item flex gap-3.5 md:gap-5 group"><div className="flex-shrink-0 w-9 h-9 md:w-14 md:h-14 rounded-lg md:rounded-2xl bg-gray-50 flex items-center justify-center text-gray-400 group-hover:bg-eum-accent group-hover:text-white transition-all duration-300"><MessageCircle className="w-4 h-4 md:w-7 md:h-7" /></div><div><h4 className="text-sm md:text-lg font-black text-gray-900 mb-1 md:mb-2">1:1 카톡 상담</h4><p className="text-gray-600 leading-relaxed font-medium text-[11px] md:text-base break-keep">카톡으로 5~10분간 선택한 필수 조건들에 대해 상담합니다.</p></div></div>
-                            <div className="feature-item flex gap-3.5 md:gap-5 group"><div className="flex-shrink-0 w-9 h-9 md:w-14 md:h-14 rounded-lg md:rounded-2xl bg-gray-50 flex items-center justify-center text-gray-400 group-hover:bg-eum-accent group-hover:text-white transition-all duration-300"><Coins className="w-4 h-4 md:w-7 md:h-7" /></div><div><h4 className="text-sm md:text-lg font-black text-gray-900 mb-1 md:mb-2">3개월 구독제</h4><p className="text-gray-600 leading-relaxed font-medium text-[11px] md:text-base break-keep">단순히 횟수만 채우는 만남이 아닙니다. 인연이 나타날 때까지 지속적으로 소개합니다.</p></div></div>
+                            <div className="feature-item flex gap-3.5 md:gap-5 group"><div className="flex-shrink-0 w-9 h-9 md:w-14 md:h-14 rounded-lg md:rounded-2xl bg-gray-50 flex items-center justify-center text-gray-400 group-hover:bg-eum-accent group-hover:text-white transition-all duration-300"><Shield className="w-4 h-4 md:w-7 h-7" /></div><div><h4 className="text-sm md:text-lg font-black text-gray-900 mb-1 md:mb-2">철저한 지인 차단</h4><p className="text-gray-600 leading-relaxed font-medium text-[11px] md:text-base break-keep">프로필 제공 전, 상대방의 ‘초성/나이/지역’을 통해 지인 여부를 미리 확인합니다.</p></div></div>
+                            <div className="feature-item flex gap-3.5 md:gap-5 group"><div className="flex-shrink-0 w-9 h-9 md:w-14 md:h-14 rounded-lg md:rounded-2xl bg-gray-50 flex items-center justify-center text-gray-400 group-hover:bg-eum-accent group-hover:text-white transition-all duration-300"><MessageCircle className="w-4 h-4 md:w-7 h-7" /></div><div><h4 className="text-sm md:text-lg font-black text-gray-900 mb-1 md:mb-2">1:1 카톡 상담</h4><p className="text-gray-600 leading-relaxed font-medium text-[11px] md:text-base break-keep">카톡으로 5~10분간 선택한 필수 조건들에 대해 상담합니다.</p></div></div>
+                            <div className="feature-item flex gap-3.5 md:gap-5 group"><div className="flex-shrink-0 w-9 h-9 md:w-14 md:h-14 rounded-lg md:rounded-2xl bg-gray-50 flex items-center justify-center text-gray-400 group-hover:bg-eum-accent group-hover:text-white transition-all duration-300"><Coins className="w-4 h-4 md:w-7 h-7" /></div><div><h4 className="text-sm md:text-lg font-black text-gray-900 mb-1 md:mb-2">3개월 구독제</h4><p className="text-gray-600 leading-relaxed font-medium text-[11px] md:text-base break-keep">단순히 횟수만 채우는 만남이 아닙니다. 인연이 나타날 때까지 지속적으로 소개합니다.</p></div></div>
                         </div>
                     </div>
                 </div>
@@ -155,7 +156,8 @@ const SystemFeatures = () => {
     );
 };
 
-const Home = () => {
+// Fixed the export issue by using a function declaration and direct default export
+export default function Home() {
     return (
         <div className="flex flex-col">
             <Hero />
@@ -181,5 +183,3 @@ const Home = () => {
         </div>
     );
 };
-
-export default Home;

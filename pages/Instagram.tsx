@@ -6,9 +6,9 @@ import Footer from '../components/Footer';
 const InstagramRegionsPage = () => (
     <div className="bg-eum-bg min-h-screen">
         <PageHeader title="인스타그램" subtitle="Our Community" />
-        <section className="py-24 px-6 bg-eum-bg">
-            <div className="max-w-[900px] mx-auto">
-                <div className="text-center mb-16"><h2 className="text-2xl md:text-3xl font-bold text-eum-dark mb-4">지역을 선택해주세요</h2><p className="text-gray-600 text-base md:text-lg">각 지역별 소식과 매칭 후기를 확인하실 수 있습니다.</p></div>
+        <section className="py-24 px-0 bg-eum-bg">
+            <div className="max-w-[900px] w-[82%] md:w-full mx-auto">
+                <div className="text-center mb-16"><h2 className="text-2xl md:text-3xl font-bold text-eum-dark mb-4">지역을 선택해주세요</h2><p className="text-gray-600 text-base md:text-lg font-medium leading-relaxed keep-all">각 지역별 소식과 매칭 후기를 확인하실 수 있습니다.</p></div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {[{ id: 'gj', name: '광주 · 전남', status: 'active', desc: '공식 인스타그램으로 연결됩니다.', link: 'https://www.instagram.com/e.um_log/' }, { id: 'dg', name: '대구 · 경북', status: 'preparing', desc: '채널 준비 중입니다.' }, { id: 'bs', name: '부산 · 경남', status: 'preparing', desc: '채널 준비 중입니다.' }, { id: 'dj', name: '대전 · 충청', status: 'preparing', desc: '채널 준비 중입니다.' }].map((region) => (
                         <a key={region.id} href={region.status === 'active' ? region.link : undefined} target={region.status === 'active' ? "_blank" : undefined} className={`relative group p-8 rounded-3xl border transition-all duration-300 flex flex-col justify-between min-h-[180px] ${region.status === 'active' ? 'bg-white border-eum-dark hover:shadow-xl hover:-translate-y-1 cursor-pointer' : 'bg-gray-100 border-transparent cursor-not-allowed opacity-70'}`}>
