@@ -27,33 +27,41 @@ const AppContent = () => {
     const wrapperRef = useRef<HTMLDivElement>(null);
     const location = useLocation();
     const navigate = useNavigate();
+    const isFirstMount = useRef(true);
 
-    // 새로고침이나 첫 로드 시 홈화면이 강제로 나오도록 처리
+    // 진입 시 항상 홈으로 강제 이동 (새로고침 포함)
     useEffect(() => {
-        const isFreshLoad = !window.name || window.name === "";
-        if (isFreshLoad) {
-            window.name = "eum_session"; 
-            if (location.pathname !== '/') {
+        if (isFirstMount.current) {
+            isFirstMount.current = false;
+            if (window.location.hash !== '#/') {
                 navigate('/', { replace: true });
             }
         }
-    }, [navigate, location.pathname]);
+    }, [navigate]);
 
+    // 초기 로딩 후 래퍼 표시 애니메이션
     useEffect(() => {
         if (!loading && wrapperRef.current) {
-            gsap.to(wrapperRef.current, { opacity: 1, duration: 0.8, ease: 'power2.out', onComplete: () => ScrollTrigger.refresh() });
+            gsap.to(wrapperRef.current, { 
+                opacity: 1, 
+                duration: 0.8, 
+                ease: 'power2.out', 
+                onComplete: () => {
+                    ScrollTrigger.refresh();
+                }
+            });
         }
     }, [loading]);
 
+    // 자산 업데이트 및 메타데이터 동기화
     useEffect(() => {
         const handleAssetUpdate = () => {
             setUpdateTick(prev => prev + 1);
-            ScrollTrigger.refresh();
-
-            // Update Meta Data
+            
+            // Meta Data Sync
             document.title = TEXTS.siteTitle || "E.UM LOG";
             
-            // Update Favicon
+            // Favicon Sync
             const faviconUrl = IMAGES.favicon;
             if (faviconUrl) {
                 let link = document.getElementById("dynamic-favicon") as HTMLLinkElement;
@@ -66,7 +74,7 @@ const AppContent = () => {
                 link.href = faviconUrl;
             }
 
-            // Update OG Image (for social sharing)
+            // OG Image Sync
             const ogImageUrl = IMAGES.ogImage;
             if (ogImageUrl) {
                 let ogMeta = document.getElementById("dynamic-og-image") as HTMLMetaElement;
@@ -78,13 +86,16 @@ const AppContent = () => {
                 }
                 ogMeta.content = ogImageUrl;
             }
+            
+            ScrollTrigger.refresh();
         };
-        handleAssetUpdate(); // Initial call
+
+        handleAssetUpdate();
         window.addEventListener('assets-updated', handleAssetUpdate);
         return () => window.removeEventListener('assets-updated', handleAssetUpdate);
     }, []);
 
-    // Scroll to top on route change
+    // 경로 변경 시 스크롤 상단 이동
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [location.pathname]);
@@ -94,10 +105,14 @@ const AppContent = () => {
     return (
         <>
             {loading && <Preloader onComplete={() => setLoading(false)} />}
-            <div ref={wrapperRef} className="min-h-screen flex flex-col justify-between transition-opacity duration-500" style={{ opacity: loading ? 0 : 1 }}>
+            <div 
+                ref={wrapperRef} 
+                className="min-h-screen flex flex-col justify-between" 
+                style={{ opacity: loading ? 0 : 1 }}
+            >
                 <Navbar />
                 {showFloatingBanner && <FloatingMenu />}
-                <div className="flex-1">
+                <main className="flex-1">
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/about" element={<About />} />
@@ -112,7 +127,7 @@ const AppContent = () => {
                         <Route path="/policy" element={<PolicyPage />} />
                         <Route path="*" element={<Navigate to="/" replace />} />
                     </Routes>
-                </div>
+                </main>
             </div>
         </>
     );
