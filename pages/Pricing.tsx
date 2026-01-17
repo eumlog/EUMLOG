@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Check, Star, BadgeCheck, Users } from 'lucide-react';
 import { PageHeader } from '../components/Shared';
@@ -24,6 +25,30 @@ const PricingPage = () => (
             단순히 횟수만 채우는 만남이 아닙니다. 3개월 동안 매니저가 <br className="hidden md:block" />
             당신의 이상형에 가장 가까운 인연을 찾을 때까지 함께합니다.
           </p>
+        </div>
+
+        {/* 2. Conditions Section (Dark) */}
+        <div className="max-w-[800px] mx-auto mb-16 md:mb-24">
+          <div className="bg-[#1C1C1C] rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-12 text-center shadow-2xl relative overflow-hidden">
+             <div className="relative z-10">
+                <h3 className="text-lg md:text-2xl font-bold text-white mb-6 md:mb-10 flex items-center justify-center gap-2">
+                  <div className="w-1 h-1 bg-eum-accent rounded-full"></div>
+                  매칭 조건 항목
+                  <div className="w-1 h-1 bg-eum-accent rounded-full"></div>
+                </h3>
+                
+                <div className="flex flex-wrap justify-center gap-x-3 md:gap-x-6 gap-y-2 md:gap-y-4 mb-8 md:mb-10 text-gray-300 font-bold text-[13px] md:text-xl">
+                    {['나이', '지역', '키', '흡연여부', '종교', '직업', '연봉', '학력', '자녀계획'].map((item, i) => (
+                        <span key={i} className="hover:text-white transition-colors bg-white/5 px-3 py-1 rounded-full md:bg-transparent md:px-0 md:py-0">{item}</span>
+                    ))}
+                </div>
+
+                <div className="bg-white/5 md:bg-white/10 rounded-xl p-4 md:p-6 text-[12px] md:text-base text-gray-400 md:text-gray-300 leading-relaxed border border-white/5">
+                    위 조건들 중 <span className="text-eum-accent font-bold">가장 중요한 항목을 선택</span>하시면,<br className="hidden md:block" />
+                    해당 조건을 중심으로 최적의 상대를 매칭해드립니다.
+                </div>
+             </div>
+          </div>
         </div>
 
         {/* 2. Pricing Cards */}
