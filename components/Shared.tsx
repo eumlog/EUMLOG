@@ -1,8 +1,8 @@
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { Link } from 'react-router-dom';
-import { CreditCard, ClipboardList, PenLine, UserCheck } from 'lucide-react';
+import { CreditCard, ClipboardList, PenLine, UserCheck, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export const Preloader = ({ onComplete }: { onComplete: () => void }) => {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -71,19 +71,41 @@ export const PageHeader = ({ title, subtitle }: { title: string; subtitle: strin
     );
 };
 
-export const FloatingMenu = () => (
-    <div className="fixed right-0 top-1/2 transform -translate-y-1/2 z-40 flex flex-col bg-[#1C1C1C]/45 backdrop-blur-md rounded-l-xl md:rounded-l-2xl shadow-[0_10px_40px_rgba(0,0,0,0.2)] border-l border-y border-white/10 overflow-hidden transition-all duration-300 hover:bg-[#1C1C1C]/75 hover:backdrop-blur-xl">
-        <Link to="/pricing" className="group flex flex-col items-center justify-center w-[52px] h-[50px] md:w-[84px] md:h-[80px] border-b border-white/5 hover:bg-eum-accent transition-all duration-300">
-            <CreditCard className="w-4 h-4 md:w-5 md:h-5 text-gray-300 group-hover:text-white mb-0.5 md:mb-1 transition-colors duration-300" /><span className="text-[9px] md:text-[11px] font-bold text-gray-300 group-hover:text-white transition-colors duration-300 tracking-tight text-center leading-[1.1]">멤버십<br className="md:hidden" /> 안내</span>
-        </Link>
-        <Link to="/service" className="group flex flex-col items-center justify-center w-[52px] h-[50px] md:w-[84px] md:h-[80px] border-b border-white/5 hover:bg-eum-accent transition-all duration-300">
-            <ClipboardList className="w-4 h-4 md:w-5 md:h-5 text-gray-300 group-hover:text-white mb-0.5 md:mb-1 transition-colors duration-300" /><span className="text-[9px] md:text-[11px] font-bold text-gray-300 group-hover:text-white transition-colors duration-300 tracking-tight text-center leading-[1.1]">진행방식</span>
-        </Link>
-        <Link to="/criteria" className="group flex flex-col items-center justify-center w-[52px] h-[50px] md:w-[84px] md:h-[80px] border-b border-white/5 hover:bg-eum-accent transition-all duration-300">
-            <UserCheck className="w-4 h-4 md:w-5 md:h-5 text-gray-300 group-hover:text-white mb-0.5 md:mb-1 transition-colors duration-300" /><span className="text-[9px] md:text-[11px] font-bold text-gray-300 group-hover:text-white transition-colors duration-300 tracking-tight text-center leading-[1.1]">가입기준</span>
-        </Link>
-        <Link to="/apply" className="group flex flex-col items-center justify-center w-[52px] h-[50px] md:w-[84px] md:h-[80px] hover:bg-eum-accent transition-all duration-300">
-            <PenLine className="w-4 h-4 md:w-5 md:h-5 text-gray-300 group-hover:text-white mb-0.5 md:mb-1 transition-colors duration-300" /><span className="text-[9px] md:text-[11px] font-bold text-gray-300 group-hover:text-white transition-colors duration-300 tracking-tight text-center leading-[1.1]">신청하기</span>
-        </Link>
-    </div>
-);
+export const FloatingMenu = () => {
+    const [isOpen, setIsOpen] = useState(true);
+
+    return (
+        <div 
+            className={`fixed right-0 top-[42%] md:top-1/2 transform -translate-y-1/2 z-40 flex items-center transition-transform duration-500 ease-out ${isOpen ? 'translate-x-0' : 'translate-x-[44px] md:translate-x-[84px]'}`}
+        >
+            {/* Toggle Button */}
+            <button 
+                onClick={() => setIsOpen(!isOpen)}
+                className="flex items-center justify-center w-[12px] h-[40px] md:w-[16px] md:h-[60px] bg-[#1C1C1C]/45 backdrop-blur-md text-gray-300 border-l border-y border-white/10 rounded-l-md hover:bg-eum-accent hover:text-white transition-all shadow-md group"
+                aria-label={isOpen ? "메뉴 숨기기" : "메뉴 보기"}
+            >
+                {isOpen ? <ChevronRight className="w-2.5 h-2.5 md:w-3.5 md:h-3.5 group-hover:scale-110 transition-transform" /> : <ChevronLeft className="w-2.5 h-2.5 md:w-3.5 md:h-3.5 group-hover:scale-110 transition-transform" />}
+            </button>
+
+            {/* Menu Items */}
+            <div className="flex flex-col bg-[#1C1C1C]/45 backdrop-blur-md shadow-[0_10px_40px_rgba(0,0,0,0.2)] border-l border-y border-white/10 overflow-hidden transition-all duration-300 hover:bg-[#1C1C1C]/75 hover:backdrop-blur-xl">
+                <Link to="/pricing" className="group flex flex-col items-center justify-center w-[44px] h-[42px] md:w-[84px] md:h-[80px] border-b border-white/5 hover:bg-eum-accent transition-all duration-300">
+                    <CreditCard className="w-[14px] h-[14px] md:w-5 md:h-5 text-gray-300 group-hover:text-white mb-0.5 md:mb-1 transition-colors duration-300" />
+                    <span className="text-[8px] md:text-[11px] font-bold text-gray-300 group-hover:text-white transition-colors duration-300 tracking-tight text-center leading-[1.1]">멤버십<br className="md:hidden" /> 안내</span>
+                </Link>
+                <Link to="/service" className="group flex flex-col items-center justify-center w-[44px] h-[42px] md:w-[84px] md:h-[80px] border-b border-white/5 hover:bg-eum-accent transition-all duration-300">
+                    <ClipboardList className="w-[14px] h-[14px] md:w-5 md:h-5 text-gray-300 group-hover:text-white mb-0.5 md:mb-1 transition-colors duration-300" />
+                    <span className="text-[8px] md:text-[11px] font-bold text-gray-300 group-hover:text-white transition-colors duration-300 tracking-tight text-center leading-[1.1]">진행방식</span>
+                </Link>
+                <Link to="/criteria" className="group flex flex-col items-center justify-center w-[44px] h-[42px] md:w-[84px] md:h-[80px] border-b border-white/5 hover:bg-eum-accent transition-all duration-300">
+                    <UserCheck className="w-[14px] h-[14px] md:w-5 md:h-5 text-gray-300 group-hover:text-white mb-0.5 md:mb-1 transition-colors duration-300" />
+                    <span className="text-[8px] md:text-[11px] font-bold text-gray-300 group-hover:text-white transition-colors duration-300 tracking-tight text-center leading-[1.1]">가입기준</span>
+                </Link>
+                <Link to="/apply" className="group flex flex-col items-center justify-center w-[44px] h-[42px] md:w-[84px] md:h-[80px] hover:bg-eum-accent transition-all duration-300">
+                    <PenLine className="w-[14px] h-[14px] md:w-5 md:h-5 text-gray-300 group-hover:text-white mb-0.5 md:mb-1 transition-colors duration-300" />
+                    <span className="text-[8px] md:text-[11px] font-bold text-gray-300 group-hover:text-white transition-colors duration-300 tracking-tight text-center leading-[1.1]">신청하기</span>
+                </Link>
+            </div>
+        </div>
+    );
+};
