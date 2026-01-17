@@ -49,10 +49,10 @@ const Navbar = () => {
     return (
         <>
             <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled || mobileMenuOpen ? 'bg-white/90 backdrop-blur-md border-b border-gray-100 text-black shadow-sm' : 'text-white mix-blend-difference'}`}>
-                <div className="max-w-[850px] w-[92%] md:w-full mx-auto p-5 md:p-6 flex justify-between items-center">
+                <div className="max-w-[850px] w-[82%] md:w-full mx-auto py-4 md:py-6 flex justify-between items-center">
                     <div className="z-50 relative group">
                         <Link to="/" onClick={handleLogoClick} className="block">
-                            <span className="font-sans font-black text-xl md:text-2xl tracking-tighter cursor-pointer uppercase">E.UM LOG</span>
+                            <span className="font-sans font-black text-lg md:text-2xl tracking-tighter cursor-pointer uppercase">E.UM LOG</span>
                         </Link>
                     </div>
                     <div className={`hidden lg:flex gap-8 text-sm font-bold tracking-widest ${isScrolled ? 'text-gray-800' : 'text-gray-200'}`}>
@@ -72,11 +72,11 @@ const Navbar = () => {
                         </Link>
                     </div>
                     <div className="lg:hidden z-50 cursor-pointer hover:text-eum-accent transition-colors" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-                        {mobileMenuOpen ? <X className="w-6 h-6 text-black" /> : <Menu className="w-6 h-6" />}
+                        {mobileMenuOpen ? <X className="w-5 h-5 text-black" /> : <Menu className="w-5 h-5" />}
                     </div>
                 </div>
             </nav>
-            <div className="mobile-menu fixed inset-0 bg-white z-40 transform translate-x-full flex flex-col justify-center items-center gap-8 text-xl font-bold text-eum-dark lg:hidden">
+            <div className="mobile-menu fixed inset-0 bg-white z-40 transform translate-x-full flex flex-col justify-center items-center gap-8 text-lg font-bold text-eum-dark lg:hidden">
                 {navLinks.map((link) => (
                     <Link key={link.name} to={link.href} onClick={() => setMobileMenuOpen(false)} className={`hover:text-eum-accent transition-colors ${isActive(link.href) ? 'text-eum-accent' : ''}`}>
                         {link.name}
