@@ -9,15 +9,31 @@ export const Preloader = ({ onComplete }: { onComplete: () => void }) => {
     const textRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        const tl = gsap.timeline({
-            onComplete: () => {
-                onComplete();
+        // 안전 장치: 만약 GSAP가 어떤 이유로든 멈추면 3.5초 후 강제로 완료 처리
+        const safetyTimeout = setTimeout(() => {
+            onComplete();
+        }, 3500);
+
+        const ctx = gsap.context(() => {
+            const tl = gsap.timeline({
+                onComplete: () => {
+                    clearTimeout(safetyTimeout);
+                    onComplete();
+                }
+            });
+            
+            if (containerRef.current) {
+                gsap.set(containerRef.current, { opacity: 1 });
+                tl.to(barRef.current, { width: '100%', duration: 1.2, ease: 'power2.inOut' })
+                  .to(textRef.current, { y: -20, opacity: 0, duration: 0.4 })
+                  .to(containerRef.current, { yPercent: -100, duration: 0.6, ease: 'power4.inOut' }, "-=0.1");
             }
         });
-        gsap.set(containerRef.current, { opacity: 1 });
-        tl.to(barRef.current, { width: '100%', duration: 1.5, ease: 'power2.inOut' })
-            .to(textRef.current, { y: -30, opacity: 0, duration: 0.5 })
-            .to(containerRef.current, { yPercent: -100, duration: 0.8, ease: 'power4.inOut' }, "-=0.2");
+
+        return () => {
+            clearTimeout(safetyTimeout);
+            ctx.revert();
+        };
     }, [onComplete]);
 
     return (
@@ -34,7 +50,13 @@ export const PageHeader = ({ title, subtitle }: { title: string; subtitle: strin
     const containerRef = useRef<HTMLDivElement>(null);
     useEffect(() => {
         const ctx = gsap.context(() => {
-            gsap.from('.header-reveal', { y: 50, opacity: 0, duration: 1, stagger: 0.2, ease: 'power3.out' });
+            gsap.from('.header-reveal', { 
+                y: 30, 
+                opacity: 0, 
+                duration: 0.8, 
+                stagger: 0.15, 
+                ease: 'power3.out' 
+            });
         }, containerRef);
         return () => ctx.revert();
     }, []);
