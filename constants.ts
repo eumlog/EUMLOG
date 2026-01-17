@@ -1,7 +1,7 @@
 import { ImageAssets, TextAssets } from './types';
 
 export const DEFAULT_IMAGES: ImageAssets = {
-    favicon: "https://wooban.co.kr/wp-content/uploads/2026/01/%EB%A1%9C%EA%B3%A0-001-1.png", // 제공해주신 새로운 파비콘 링크 적용
+    favicon: "https://wooban.co.kr/wp-content/uploads/2026/01/%EB%A1%9C%EA%B3%A0-001-2.png", // 제공해주신 새로운 파비콘 링크 적용
     logo: "", // 텍스트 로고 사용을 위해 비워둠
     ogImage: "https://wooban.co.kr/wp-content/uploads/2026/01/%EC%9D%B4%EC%9D%8C%EB%A1%9C%EA%B7%B8%EB%9E%80v2_%EB%B3%B5%EC%82%AC%EB%B3%B8-001.png", // 새로운 웹공유 썸네일 링크
     heroBackground: "https://wooban.co.kr/wp-content/uploads/2026/01/sss-1536x652.png",
